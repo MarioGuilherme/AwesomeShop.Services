@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeShop.Services.Orders.Core", "AwesomeShop.Services.Orders.Core\AwesomeShop.Services.Orders.Core.csproj", "{325A7B5F-B273-40D7-9B5A-034C1301C00C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesomeShop.Services.Orders.Core", "AwesomeShop.Services.Orders.Core\AwesomeShop.Services.Orders.Core.csproj", "{325A7B5F-B273-40D7-9B5A-034C1301C00C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeShop.Services.Orders.Application", "AwesomeShop.Services.Orders.Application\AwesomeShop.Services.Orders.Application.csproj", "{793F7650-AA09-4FBB-81F8-D19414BF320F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesomeShop.Services.Orders.Application", "AwesomeShop.Services.Orders.Application\AwesomeShop.Services.Orders.Application.csproj", "{793F7650-AA09-4FBB-81F8-D19414BF320F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeShop.Services.Orders.API", "AwesomeShop.Services.Orders.API\AwesomeShop.Services.Orders.API.csproj", "{D1873099-5B50-4986-99B7-8C49E941181D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesomeShop.Services.Orders.API", "AwesomeShop.Services.Orders.API\AwesomeShop.Services.Orders.API.csproj", "{D1873099-5B50-4986-99B7-8C49E941181D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeShop.Services.Orders.Infrastructure", "AwesomeShop.Services.Orders.Infrastructure\AwesomeShop.Services.Orders.Infrastructure.csproj", "{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D1873099-5B50-4986-99B7-8C49E941181D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1873099-5B50-4986-99B7-8C49E941181D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1873099-5B50-4986-99B7-8C49E941181D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
