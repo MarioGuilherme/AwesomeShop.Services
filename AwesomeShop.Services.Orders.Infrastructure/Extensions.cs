@@ -7,6 +7,8 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using AwesomeShop.Services.Orders.Core.Repositories;
 using AwesomeShop.Services.Orders.Infrastructure.Persistences.Repositories;
+using AwesomeShop.Services.Orders.Infrastructure.MessageBus;
+using RabbitMQ.Client;
 
 namespace AwesomeShop.Services.Orders.Infrastructure;
 
@@ -40,6 +42,19 @@ public static class Extensions {
 
     public static IServiceCollection AddRepositories(this IServiceCollection services) {
         services.AddScoped<IOrderRepository, OrderRepository>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddMessageBus(this IServiceCollection services) {
+        ConnectionFactory connectionFactory = new() {
+            HostName = "localhost"
+        };
+
+        IConnection connection = connectionFactory.CreateConnectionAsync("order-service-producer").Result;
+
+        services.AddSingleton(new ProducerConnection(connection));
+        services.AddSingleton<IMessageBusClient, RabbitMqClient>(); // A conexão fica ativa, e onde solicitar criará um canal a partir da conexão
 
         return services;
     }

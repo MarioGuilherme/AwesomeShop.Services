@@ -25,6 +25,7 @@ public class Order : AggregateRoot {
         this.PaymentInfo = paymentInfo;
         this.Items = items;
         this.CreatedAt = DateTime.Now;
+        this.Status = OrderStatus.Started;
 
         this.AddEvent(new OrderCreated(this.Id, this.TotalPrice, this.PaymentInfo, this.Customer.FullName, this.Customer.Email));
     }
