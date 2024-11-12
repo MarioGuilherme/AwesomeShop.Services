@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesomeShop.Services.Orders
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesomeShop.Services.Orders.API", "AwesomeShop.Services.Orders.API\AwesomeShop.Services.Orders.API.csproj", "{D1873099-5B50-4986-99B7-8C49E941181D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeShop.Services.Orders.Infrastructure", "AwesomeShop.Services.Orders.Infrastructure\AwesomeShop.Services.Orders.Infrastructure.csproj", "{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesomeShop.Services.Orders.Infrastructure", "AwesomeShop.Services.Orders.Infrastructure\AwesomeShop.Services.Orders.Infrastructure.csproj", "{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orders", "Orders", "{12F8313A-9E80-4B07-A281-E868D09B2154}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Gateway", "API Gateway", "{1121D4AD-FB6C-4D33-BEC4-BA461951312C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeShop.Services.ApiGateway", "AwesomeShop.Services.ApiGateway\AwesomeShop.Services.ApiGateway.csproj", "{08F7CC7D-E518-41F4-BA14-6510352C9F6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +39,20 @@ Global
 		{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F7CC7D-E518-41F4-BA14-6510352C9F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F7CC7D-E518-41F4-BA14-6510352C9F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F7CC7D-E518-41F4-BA14-6510352C9F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F7CC7D-E518-41F4-BA14-6510352C9F6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{325A7B5F-B273-40D7-9B5A-034C1301C00C} = {12F8313A-9E80-4B07-A281-E868D09B2154}
+		{793F7650-AA09-4FBB-81F8-D19414BF320F} = {12F8313A-9E80-4B07-A281-E868D09B2154}
+		{D1873099-5B50-4986-99B7-8C49E941181D} = {12F8313A-9E80-4B07-A281-E868D09B2154}
+		{4D3A4ACF-DE13-41B1-9D38-405AB8C57B0A} = {12F8313A-9E80-4B07-A281-E868D09B2154}
+		{08F7CC7D-E518-41F4-BA14-6510352C9F6D} = {1121D4AD-FB6C-4D33-BEC4-BA461951312C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FABBF079-F6DD-4BCD-AB99-088C57F36306}

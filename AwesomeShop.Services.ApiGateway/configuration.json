@@ -1,0 +1,37 @@
+{
+  "Routes": [
+    { // Ex: localhost:5000/customers/api/clients?createdAt=2020-01-01 GET => localhost:5001/customers/clients?createdAt=2020-01-01 GET
+      "UpstreamPathTemplate": "/customers/{everything}", // O que entra
+      "DownstreamPathTemplate": "/{everything}", // Onde redireciona
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/products/{everything}",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/orders/{everything}",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ]
+    }
+  ]
+}
