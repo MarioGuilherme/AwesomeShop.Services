@@ -9,6 +9,10 @@ using AwesomeShop.Services.Orders.Core.Repositories;
 using AwesomeShop.Services.Orders.Infrastructure.Persistences.Repositories;
 using AwesomeShop.Services.Orders.Infrastructure.MessageBus;
 using RabbitMQ.Client;
+using Consul;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
+using AwesomeShop.Services.Orders.Infrastructure.ServiceDiscovery;
 
 namespace AwesomeShop.Services.Orders.Infrastructure;
 
@@ -57,5 +61,40 @@ public static class Extensions {
         services.AddSingleton<IMessageBusClient, RabbitMqClient>(); // A conexão fica ativa, e onde solicitar criará um canal a partir da conexão
 
         return services;
+    }
+
+    public static IServiceCollection AddServiceDiscoveryConfig(this IServiceCollection services, IConfiguration configuration) {
+        services.AddSingleton<IConsulClient, ConsulClient>(p => new(consulConfig => {
+            string address = configuration.GetValue<string>("Consult:Host")!;
+            consulConfig.Address = new(address);
+        }));
+
+        services.AddTransient<IServiceDiscoveryService, ConsulService>();
+
+        return services;
+    }
+
+    public static IApplicationBuilder UseConsul(this IApplicationBuilder app) {
+        IConsulClient consulClient = app.ApplicationServices.GetRequiredService<IConsulClient>();
+        IHostApplicationLifetime lifeTime = app.ApplicationServices.GetRequiredService<IHostApplicationLifetime>();
+
+        AgentServiceRegistration registration = new() {
+            ID = $"order-service-{Guid.NewGuid()}",
+            Name = "OrderServices",
+            Address = "localhost",
+            Port = 7067
+        };
+
+        consulClient.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true);
+        consulClient.Agent.ServiceRegister(registration).ConfigureAwait(true);
+
+        Console.WriteLine("Service registered in Consul");
+
+        lifeTime.ApplicationStopping.Register(() => {
+            consulClient.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true);
+            Console.WriteLine("Service deregistered in Consul");
+        });
+
+        return app;
     }
 }

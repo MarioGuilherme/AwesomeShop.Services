@@ -8,7 +8,8 @@ builder.Services
     .AddMongo()
     .AddRepositories()
     .AddHandlers()
-    .AddSubscribers();
+    .AddSubscribers()
+    .AddServiceDiscoveryConfig(builder.Configuration);
 
 builder.Services.AddHttpClient();
 
@@ -25,7 +26,7 @@ if (app.Environment.IsDevelopment()) {
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseConsul();
 
 app.MapControllers();
 
