@@ -1,1 +1,1 @@
-# AwesomeShop.Services.Orders
+# AwesomeShop.Services
