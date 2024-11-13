@@ -4,6 +4,7 @@ using AwesomeShop.Services.Orders.Infrastructure;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services
+    .AddRedisCache()
     .AddMessageBus()
     .AddMongo()
     .AddRepositories()

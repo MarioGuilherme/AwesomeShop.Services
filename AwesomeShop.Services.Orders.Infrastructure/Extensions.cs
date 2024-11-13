@@ -13,6 +13,7 @@ using Consul;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using AwesomeShop.Services.Orders.Infrastructure.ServiceDiscovery;
+using AwesomeShop.Services.Orders.Infrastructure.CacheStorage;
 
 namespace AwesomeShop.Services.Orders.Infrastructure;
 
@@ -96,5 +97,16 @@ public static class Extensions {
         });
 
         return app;
+    }
+
+    public static IServiceCollection AddRedisCache(this IServiceCollection services) {
+        services.AddStackExchangeRedisCache(options => {
+            options.InstanceName = "OrdersCache";
+            options.Configuration = "localhost:6379";
+        });
+
+        services.AddTransient<ICacheService, RedisService>(); // Sempre cria uma nova conexão, por isso é transient
+
+        return services;
     }
 }
